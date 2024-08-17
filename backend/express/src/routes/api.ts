@@ -1,8 +1,9 @@
 import {Router} from "express";
-import {AnswerReq, AnswerRes, QuestionData} from "api-types";
+import {AnswerReq, AnswerRes} from "api-types";
 import Question from "../model/Question.js";
+import data from "../../../data.json";
 
-const questions: Question[] = Question.fromJson({});
+const questions: Question[] = Question.fromJson(data);
 
 export const router = Router();
 
