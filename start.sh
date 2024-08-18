@@ -37,6 +37,6 @@ case $choice in
         python3 manage.py runserver
         ;;
     *)
-        echo "Ungültige Option. Bitte wählen Sie 1 oder 2."
+        echo "Ungültige Option. Bitte wählen Sie 1, 2 oder 3."
         ;;
 esac
