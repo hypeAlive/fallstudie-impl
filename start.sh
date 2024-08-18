@@ -10,6 +10,11 @@ generate_secret_key() {
     python3 -c "import random; import string; print(''.join(random.SystemRandom().choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(50)))"
 }
 
+cd types/typescript
+npm i
+npm run build
+cd ../..
+
 case $choice in
     1)
         echo "Express Backend wird gestartet..."

@@ -15,6 +15,7 @@ export default class Question {
         return {
             id: this.data.id,
             question: this.data.question,
+            options: this.data.options,
         };
     }
 

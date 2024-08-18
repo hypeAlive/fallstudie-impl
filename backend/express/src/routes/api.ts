@@ -4,6 +4,7 @@ import Question from "../model/Question.js";
 import fs from 'fs';
 import path from 'path';
 import {LOGGER} from "../main.js";
+import {BACKEND_TYPE} from "api-types/dist/quiz.type.js";
 const dataPath = path.resolve('../data.json');
 
 let questions: Question[] = [];
@@ -20,6 +21,10 @@ try {
 export const router = Router();
 router.get("/", (req, res) => {
     res.send("Example CaseStudy API for express!");
+});
+
+router.get("/type", (req, res) => {
+   res.status(200).send('express' as BACKEND_TYPE);
 });
 
 router.get("/question", (req, res) => {

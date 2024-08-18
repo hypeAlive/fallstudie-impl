@@ -9,6 +9,8 @@ export type QuestionData = QuestionHidden & {
     answers: AnswerType;
 }
 
+export type BACKEND_TYPE = 'express' | 'django' | 'spring';
+
 export type QuestionHidden = {
     id: number;
     options: QuestionOption[];
