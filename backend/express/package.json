@@ -6,15 +6,17 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc"
+    "build": "tsc && node copyData.js",
+    "compileStart": "npm run build && npm start"
   },
   "dependencies": {
+    "api-types": "../../types/typescript",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "morgan": "~1.9.1",
+    "rimraf": "^6.0.1",
     "ts-optional": "github:hypeAlive/ts-optional",
-    "api-types": "../../types/typescript",
     "winston": "^3.14.2"
   },
   "devDependencies": {

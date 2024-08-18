@@ -1,9 +1,22 @@
 import {Router} from "express";
 import {AnswerReq, AnswerRes} from "api-types";
 import Question from "../model/Question.js";
-import data from "../../../data.json";
+import fs from 'fs';
+import path from 'path';
+import {LOGGER} from "../app.js";
 
-const questions: Question[] = Question.fromJson(data);
+//@ts-ignore
+const dataPath = path.resolve('./dist/data.json');
+
+let questions: Question[] = [];
+
+try {
+    const data = fs.readFileSync(dataPath, 'utf8');
+    questions = Question.fromJson(JSON.parse(data));
+    LOGGER.info('JSON file read');
+} catch (err) {
+    LOGGER.error('Error reading JSON file', err);
+}
 
 export const router = Router();
 
@@ -17,6 +30,7 @@ router.get("/question", (req, res) => {
             .map((question) => question.getHidden()
             )
         );
+    LOGGER.info('Question data sent');
 });
 
 router.post("/question", (req, res) => {
@@ -28,6 +42,7 @@ router.post("/question", (req, res) => {
     if (!question) {
         res.status(404)
             .send("Question not found");
+        LOGGER.error('Question not found');
         return;
     }
 
@@ -37,4 +52,6 @@ router.post("/question", (req, res) => {
             isCorrect: question.isCorrect(answer.answer)
         } as AnswerRes
         );
+
+    LOGGER.info('Answer data sent');
 });
