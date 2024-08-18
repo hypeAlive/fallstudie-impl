@@ -31,6 +31,24 @@ router.get("/question", (req, res) => {
     LOGGER.info('Question data sent');
 });
 
+router.get("/question/ids", (req, res) => {
+    res.status(200).send(questions.map((question) => question.getId()));
+});
+
+router.get("/question/:id", (req, res) => {
+    const id = Number(req.params.id);
+    if(isNaN(id)) {
+        res.status(400).send('Invalid ID');
+        return;
+    }
+    const question = questions.find((question) => question.getId() === id);
+    if(!question) {
+        res.status(404).send('Question not found');
+        return;
+    }
+    res.status(200).send(question);
+});
+
 router.post("/question", (req, res) => {
 
     const answer: AnswerReq = req.body;
