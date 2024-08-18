@@ -26,15 +26,15 @@ case $choice in
     3)
         echo "Django Backend wird gestartet..."
         cd backend/django
+        python3 -m venv .venv
+        source .venv/bin/activate
+        cd example
         if [ ! -f .env ]; then
             SECRET_KEY=$(generate_secret_key)
             echo "SECRET_KEY=$SECRET_KEY" > .env
         fi
-        python3 -m venv .venv
-        source .venv/bin/activate
-        cd example
         pip install -r requirements.txt
-        python3 manage.py runserver
+        python3 manage.py runserver 8080
         ;;
     *)
         echo "Ungültige Option. Bitte wählen Sie 1, 2 oder 3."
