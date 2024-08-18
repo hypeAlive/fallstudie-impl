@@ -19,6 +19,11 @@ public class QuestionController {
         return "Example CaseStudy API for Spring!";
     }
 
+    @GetMapping("/type")
+    public String getBackendType() {
+        return "spring";
+    }
+
     @GetMapping("/question")
     public List<Question.QuestionHidden> getQuestions() {
         return questionService.getAllQuestions().stream().map(Question::getHidden).toList();
