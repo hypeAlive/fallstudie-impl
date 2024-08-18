@@ -13,7 +13,7 @@ public class Question {
     private int id;
     private String question;
     private List<QuestionOption> options;
-    private char answer;
+    private char answers;
 
     protected static class QuestionOption {
         @JsonProperty
@@ -39,6 +39,20 @@ public class Question {
         }
     }
 
+    public static class AnswerReq {
+        @JsonProperty
+        @Getter
+        private int id;
+        @JsonProperty
+        @Getter
+        private char answer;
+
+        public AnswerReq(int id, char answer){
+            this.answer = answer;
+            this.id = id;
+        }
+    }
+
     public static class QuestionHidden {
         @JsonProperty
         private int id;
@@ -59,7 +73,7 @@ public class Question {
     }
 
     public boolean isCorrect(char answer) {
-        return this.answer == answer;
+        return this.answers == answer;
     }
 
     public AnswerRes checkAnswer(char answer) {

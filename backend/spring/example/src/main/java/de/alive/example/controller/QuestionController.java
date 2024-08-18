@@ -41,7 +41,7 @@ public class QuestionController {
     }
 
     @PostMapping("/question")
-    public Question.AnswerRes checkAnswer(@RequestBody int id, @RequestBody char answer) {
-        return questionService.checkAnswer(id, answer);
+    public Question.AnswerRes checkAnswer(@RequestBody Question.AnswerReq answer) {
+        return questionService.checkAnswer(answer.getId(), answer.getAnswer());
     }
 }

@@ -8,7 +8,7 @@ class Question:
     def get_hidden(self):
         return {
             'id': self.id,
-            'question_text': self.question,
+            'question': self.question,
             'options': self.options
         }
 

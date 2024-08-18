@@ -1,5 +1,20 @@
 <main class="container m-auto p-4 h-lvh max-h-lvh">
-  <div class="w-0.5 h-0.5">
+  <div class="flex flex-col gap-20 justify-center items-center h-screen">
+
+    <div class="flex justify-center items-center space-x-4">
+      <img src="assets/angular_logo.png" class="w-32 h-32 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+           height="1200" width="1200" alt="Frontend Logo">
+      <h1 *ngIf="pictureUrl" class="text-center text-4xl">X</h1>
+      <img *ngIf="pictureUrl" ngSrc="{{this.pictureUrl}}"
+           [ngClass]="{'w-28 h-28': pictureUrl === BackendPictures.spring}"
+           class="w-32 h-32 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
+           height="512" width="512" alt="Backend Logo">
+    </div>
+
+    <div class="divider divider-primary"></div>
+
+    <div class="flex flex-col gap-4 justify-center items-center p-6">
+      <router-outlet/>
+    </div>
   </div>
-  <app-quiz/>
 </main>

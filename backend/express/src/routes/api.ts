@@ -51,7 +51,7 @@ router.get("/question/:id", (req, res) => {
         res.status(404).send('Question not found');
         return;
     }
-    res.status(200).send(question);
+    res.status(200).send(question.getHidden());
 });
 
 router.post("/question", (req, res) => {
