@@ -1,0 +1,38 @@
+<ng-container *ngIf="isLoading; else content">
+  <span class="loading loading-spinner text-secondary"></span>
+</ng-container>
+
+<ng-template #content>
+  <ng-container *ngIf="question; else result">
+    <div class="flex flex-col justify-center items-center">
+      <h2 class="text-2xl font-bold mb-4">{{ question.question }}</h2>
+
+      <div class="flex flex-col gap-2">
+        <label class="flex items-center gap-2" *ngFor="let option of question.options">
+          <input type="radio" name="radio-3" class="radio radio-secondary" [value]="option"
+                 (click)="onOptionSelected(option)"/>
+          <span>{{ option.type }}) {{ option.text }}</span>
+        </label>
+      </div>
+
+      <button [ngClass]="{'btn-disabled': !selectedAnswer}"
+              class="btn btn-active btn-primary min-w-60 mt-4 hover:bg-primary-dark"
+              (click)="submitAnswer()"
+      >
+        Bestätigen
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #result>
+    <div class="flex flex-col justify-center items-center">
+      <h2 class="text-2xl font-bold mb-4 result"
+      [ngClass]="{'wrong': !isCorrect}">
+        {{ isCorrect ? 'Correct!' : 'Incorrect!' }}
+      </h2>
+      <button class="btn btn-active btn-primary min-w-60 mt-4 hover:bg-primary-dark" (click)="requestRandomQuestions()">
+        Next Question
+      </button>
+    </div>
+  </ng-template>
+</ng-template>
