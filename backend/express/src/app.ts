@@ -1,12 +1,7 @@
-import winston from "winston";
 import ServerUtil from "./util/ServerUtil.js";
+import {router as apiRouter} from "./routes/api.js";
 
-export const LOGGER = winston.createLogger({
-   level: 'info',
-   format: winston.format.json(),
-   transports: [
-      new winston.transports.Console(),
-   ]
-});
+export const app = ServerUtil.createApp();
 
-ServerUtil.createApp();
+app.use("/api", apiRouter);
+

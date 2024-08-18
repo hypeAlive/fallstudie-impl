@@ -3,10 +3,8 @@ import {AnswerReq, AnswerRes} from "api-types";
 import Question from "../model/Question.js";
 import fs from 'fs';
 import path from 'path';
-import {LOGGER} from "../app.js";
-
-//@ts-ignore
-const dataPath = path.resolve('./dist/data.json');
+import {LOGGER} from "../main.js";
+const dataPath = path.resolve('../data.json');
 
 let questions: Question[] = [];
 
@@ -15,11 +13,11 @@ try {
     questions = Question.fromJson(JSON.parse(data));
     LOGGER.info('JSON file read');
 } catch (err) {
-    LOGGER.error('Error reading JSON file', err);
+    LOGGER.error('Error while reading JSON file');
+    console.error(err);
 }
 
 export const router = Router();
-
 router.get("/", (req, res) => {
     res.send("Example CaseStudy API for express!");
 });

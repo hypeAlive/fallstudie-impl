@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
-import {LOGGER} from "../app.js";
+import {LOGGER} from "../main.js";
 
 export default class {
 

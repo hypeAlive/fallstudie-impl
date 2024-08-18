@@ -6,7 +6,7 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc && node copyData.js",
+    "build": "tsc",
     "compileStart": "npm run build && npm start"
   },
   "dependencies": {
