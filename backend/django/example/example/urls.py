@@ -21,7 +21,7 @@ from example import views
 from django.http import HttpResponse
 
 def return_string(request):
-    return HttpResponse("django")
+    return HttpResponse('{"type":"django"}')
 
 urlpatterns = [
     path('api/', views.index, name='index'),

@@ -21,7 +21,7 @@ public class QuestionController {
 
     @GetMapping("/type")
     public String getBackendType() {
-        return "spring";
+        return "{\"type\": \"spring\"}";
     }
 
     @GetMapping("/question")

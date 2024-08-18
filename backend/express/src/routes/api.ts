@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/type", (req, res) => {
-   res.status(200).send('express' as BACKEND_TYPE);
+   res.status(200).send({type: 'express'});
 });
 
 router.get("/question", (req, res) => {
