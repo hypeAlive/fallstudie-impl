@@ -18,9 +18,14 @@ from django.contrib import admin
 from django.urls import path
 
 from example import views
+from django.http import HttpResponse
+
+def return_string(request):
+    return HttpResponse("django")
 
 urlpatterns = [
     path('api/', views.index, name='index'),
+    path('api/type', return_string, name='return_string'),
     path('api/question/', views.get_questions, name='get_questions'),
     path('api/question/ids', views.get_question_ids, name='get_question_ids'),
     path('api/question/<int:id>/', views.get_question_by_id, name='get_question_by_id'),
