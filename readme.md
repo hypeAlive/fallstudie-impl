@@ -81,7 +81,7 @@ Dieses Projekt ist eine Test-Implementierung einer Fragen App, die als Fallstudi
 
 ### Voraussetzungen
 
-- Node.js und npm müssen installiert sein.
+- Node.js mit npm, python, Java müssen je nach Verwendung installiert sein.
 - Git Bash sollte auf Windows verwendet werden.
 
 ### Schritte
