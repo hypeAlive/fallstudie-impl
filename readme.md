@@ -23,6 +23,7 @@ Dieses Projekt ist eine Test-Implementierung einer Fragen App, die als Fallstudi
   - **Frontends:** Angular, Vuejs, React
   - **Backends:** Express, Spring Boot, Django
   - **Datenbank:** JSON-Datei
+  - **Styling:** Tailwind CSS mit DaisyUI
 
 ## 2. Umsetzung
 
@@ -70,11 +71,40 @@ Dieses Projekt ist eine Test-Implementierung einer Fragen App, die als Fallstudi
       "isCorrect": boolean // Antwort richtig oder falsch
     }
     ```
+  - **GET /type**
+  ```json
+  {
+    "type": "express" | "spring" | "django" // Backend Typ
+  }
 
-## 3. Ergebnisse und erlangtes Wissen
+## 3. Installation und Ausführung
 
-- Wie viele Zeilen nötig
-- Was fällt sonst so auf?
-- Geschwindigkeiten
+### Voraussetzungen
 
-## 4. Installation und Ausführung
+- Node.js und npm müssen installiert sein.
+- Git Bash sollte auf Windows verwendet werden.
+
+### Schritte
+
+1. **Repository klonen:**
+
+   ```bash
+   git clone https://github.com/hypeAlive/fallstudie-impl.git
+   cd fallstudie-impl
+   ```
+
+2. **Backend starten:**
+
+   ```bash
+   ./start_backend.sh
+   ```
+
+   Das Backend läuft auf Port 8080. Wenn Port 8080 blockiert ist, funktioniert es nicht.
+
+3. **Frontend starten:**
+
+   ```bash
+   ./start_frontend.sh
+   ```
+
+   Das Frontend läuft auf Port 4200. Wenn Port 4200 blockiert ist, funktioniert es möglicherweise nicht.
